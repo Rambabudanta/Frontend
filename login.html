@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Service Management Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .login-container button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    
+    <!-- Error message section, hidden initially -->
+    <div class="error-message" id="error-message" style="display: none;">
+        Invalid username or password.
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" onsubmit="return handleLogin()">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 Service Management Portal. All rights reserved.</p>
+</footer>
+
+<script>
+    // Simple login validation and redirection logic (for demonstration purposes)
+    function handleLogin() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        
+        // Placeholder login validation logic (In real application, this should be done in the backend)
+        if (username === "admin" && password === "admin123") {
+            window.location.href = "home.html"; // Redirect to home page for admin
+        } else if (username === "professional" && password === "prof123") {
+            window.location.href = "home.html"; // Redirect to home page for professional
+        } else if (username === "user" && password === "user123") {
+            window.location.href = "home.html"; // Redirect to home page for user
+        } else if (username === "support" && password === "support123") {
+            window.location.href = "home.html"; // Redirect to home page for support
+        } else {
+            document.getElementById("error-message").style.display = "block";
+            return false; // Prevent form submission
+        }
+        return false; // Prevent form submission to handle login in frontend
+    }
+</script>
+
+</body>
+</html>
